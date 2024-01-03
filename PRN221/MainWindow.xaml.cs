@@ -34,7 +34,17 @@ namespace PRN221
 
 		private void Btn_Submit_Click(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show(txtName.Text);
+			String user = "Student Name: " + txtName.Text + "\n" + "StudentCode: " + txtCode.Text + "\n" +
+				"Password: " + txtPass.Password + "\n";
+			user += "Student Email: " + txtEmail.Text + "\n" + "Gender: ";
+			if (rdMale.IsChecked == true) user += "Male";
+			else user += "Female";
+			user += "\t\t" + "Scholarship: ";
+			if (cbScholar.IsChecked == true) user += "Yes";
+			else user += "No" + "\n";
+			user += "Date of birth: " + txtDate.Text + "\n" + "Narrow Specialization : " +
+					cbxNarrow.Text + "\n" + "Favorite Color : " + cbxColor.Text;
+			MessageBox.Show(user);
 		}
 	}
 }

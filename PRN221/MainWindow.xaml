@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRN221"
         mc:Ignorable="d"
-        Title="MainWindow1234" Height="600" Width="800">
+        Title="Student Information" Height="600" Width="800">
     <Grid RenderTransformOrigin="0.513,0.564">
-        <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0,34,0,0" Name="lbUser">User Information</Label>
+        <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0,34,0,0" Name="lbUser">Student Information</Label>
         <Label Name="lbName" Margin="50,100,0,0" FontSize="16" Content="Student Name"/>
         <Label Name="lbCode" Margin="50,140,0,0" FontSize="16" Content="Student Code"/>
         <Label Name="lbEmail" Margin="50,180,0,0" FontSize="16" Content="Student Emai"/>
@@ -17,28 +17,28 @@
         <Label Name="lbNarrow" Margin="50,340,0,0" FontSize="16" Content="Narrow Specialization"/>
         <Label Name="lbColor" Margin="50,380,0,0" FontSize="16" Content="Favorite Color"/>
 
-        <TextBox Margin="250,100,0,0" Name="txtName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="25"></TextBox>
-        <TextBox Margin="250,140,0,0" Name="txtCode" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="25"></TextBox>
-        <TextBox Margin="250,180,0,0" Name="txtEmail" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="25"></TextBox>
-        <PasswordBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="25" Margin="250,220,0,0" Name="txtPass"></PasswordBox>
+        <TextBox Margin="250,100,0,0" Name="txtName" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="424" Height="25"></TextBox>
+        <TextBox Margin="250,140,0,0" Name="txtCode" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="424" Height="25"></TextBox>
+        <TextBox Margin="250,180,0,0" Name="txtEmail" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="424" Height="25"></TextBox>
+        <PasswordBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="424" Height="25" Margin="250,220,0,0" Name="txtPass"></PasswordBox>
         <RadioButton Content="Male" Margin="250,260,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Name="rdMale"/>
         <RadioButton Content="Female" Margin="320,260,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Name="rdFemale"/>
         <CheckBox Content="Scholarship" HorizontalAlignment="Left" Margin="450,260,0,0" VerticalAlignment="Top" FontSize="16" Name="cbScholar"/>
-        <DatePicker HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.43,2.151" Width="300" FontSize="16" Name="txtDate"/>
-        <ComboBox HorizontalAlignment="Left" Margin="250,340,0,0" VerticalAlignment="Top" Width="300" FontSize="16" SelectedIndex="0" x:Name="cbxNarrow">
-            <ComboBoxItem Content="SE" Width="300" />
-            <ComboBoxItem Content="MKT" Width="300" />
-            <ComboBoxItem Content="AI" Width="300"/>
-            <ComboBoxItem Content="Other" Width="300"/>
+        <DatePicker HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.43,2.151" Width="424" FontSize="16" Name="txtDate"/>
+        <ComboBox HorizontalAlignment="Left" Margin="250,340,0,0" VerticalAlignment="Top" Width="424" FontSize="16" SelectedIndex="0" x:Name="cbxNarrow">
+            <ComboBoxItem Content="SE"/>
+            <ComboBoxItem Content="MKT" />
+            <ComboBoxItem Content="AI"/>
+            <ComboBoxItem Content="Other"/>
         </ComboBox>
 
-        <ComboBox HorizontalAlignment="Left" Margin="250,380,0,0" VerticalAlignment="Top" Width="300" FontSize="16" SelectedIndex="0" x:Name="cbxColor">
-            <ComboBoxItem Content="Green" Width="300" />
-            <ComboBoxItem Content="Blue" Width="300" />
-            <ComboBoxItem Content="Red" Width="300"/>
-            <ComboBoxItem Content="Black" Width="300"/>
-            <ComboBoxItem Content="Yellow" Width="300"/>
-            <ComboBoxItem Content="Other" Width="300"/>
+        <ComboBox HorizontalAlignment="Left" Margin="250,380,0,0" VerticalAlignment="Top" Width="424" FontSize="16" SelectedIndex="0" x:Name="cbxColor">
+            <ComboBoxItem Content="Green"/>
+            <ComboBoxItem Content="Blue"/>
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Black"/>
+            <ComboBoxItem Content="Yellow"/>
+            <ComboBoxItem Content="Other"/>
         </ComboBox>
 
         <Button HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Content="Submit Information" Margin="0,500,0,0" Foreground="White" Background="Green" Width="200" Height="50"
