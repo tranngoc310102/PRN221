@@ -16,7 +16,7 @@
             
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" Name="dgvDisplay" AutoGenerateColumns="False" SelectionChanged="dgvDisplay_SelectionChanged">
+        <DataGrid Grid.Column="0" Name="dgvDisplay" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="MSSV" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Student Name" Binding="{Binding Name}"/>
@@ -43,22 +43,28 @@
                 <ColumnDefinition Width="2.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Content="ID" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="30"/>
-            <TextBox Name="txtId" HorizontalAlignment="Left" Width="150" Grid.Row="0" Grid.Column="1" Height="30"/>
+            <TextBox Name="txtId" HorizontalAlignment="Left" Width="150" Grid.Row="0" Grid.Column="1" Height="30"
+                     Text="{Binding Path= SelectedItem.Id, ElementName=dgvDisplay, Mode=OneWay}"/>
 
             <Label Content="Name" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Height="30"/>
-            <TextBox Name="txtName" Width="150" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Height="30"/>
+            <TextBox Name="txtName" Width="150" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Height="30"
+                     Text="{Binding Path=SelectedItem.Name, ElementName=dgvDisplay, Mode=OneWay}"/>
 
             <Label Content="Gender" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Height="30"/>
-            <CheckBox Name="cbGender" HorizontalAlignment="Left" Content="Male/Female" Grid.Row="2" Grid.Column="1" Height="30"/>
+            <CheckBox Name="cbGender" HorizontalAlignment="Left" Content="Male/Female" Grid.Row="2" Grid.Column="1" Height="30"
+                      IsChecked="{Binding Path= SelectedItem.Gender, ElementName=dgvDisplay, Mode=OneWay}"/>
 
             <Label Content="Department Name" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Height="30"/>
-            <ComboBox Name="cbxName" Width="150" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" Height="30"/>
+            <ComboBox Name="cbxName" Width="150" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" Height="30"
+                      SelectedValue="{Binding Path=SelectedItem.DepartId, ElementName=dgvDisplay, Mode=OneWay}"/>
 
             <Label Content="Date of birth" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Height="30"/>
-            <DatePicker Name="txtDob" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Height="30"/>
+            <DatePicker Name="txtDob" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Height="30"
+                        Text="{Binding Path= SelectedItem.Dob, ElementName=dgvDisplay, Mode=OneWay}"/>
 
             <Label Content="GPA" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" Height="30"/>
-            <TextBox Name="txtGpa" HorizontalAlignment="Left" Width="150" Grid.Row="5" Grid.Column="1" Height="30"/>
+            <TextBox Name="txtGpa" HorizontalAlignment="Left" Width="150" Grid.Row="5" Grid.Column="1" Height="30"
+                     Text="{Binding Path=SelectedItem.Gpa, ElementName=dgvDisplay, Mode=OneWay}"/>
 
             <Grid Margin="0,20,0,0" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
@@ -66,9 +72,13 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Content="Insert" HorizontalAlignment="Center" Grid.Column="0" Name="btnAdd" Width="70"/>
-                <Button Content="Update" HorizontalAlignment="Center" Grid.Column="1" Name="btnUpdate" Width="70"/>
+                <Button Content="Insert" HorizontalAlignment="Center" Grid.Column="0" Name="btnAdd" Width="70" Click="btnAdd_Click"/>
+                <Button Content="Update" HorizontalAlignment="Center" Grid.Column="1" Name="btnUpdate" Width="70" Click="btnUpdate_Click"/>
                 <Button Content="Delete" HorizontalAlignment="Center" Grid.Column="2" Name="btnDelete" Width="70" Click="btnDelete_Click"/>
+            </Grid>
+
+            <Grid Margin="0,20,0,0" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                <ComboBox Name="cbxSearch" Width="150" HorizontalAlignment="Center" Height="30" SelectionChanged="cbxSearch_SelectionChanged"/>
             </Grid>
         </Grid>
     </Grid>
