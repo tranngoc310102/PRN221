@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DB": "server=(local);database=PRN211_1;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true"
+  }
+}
