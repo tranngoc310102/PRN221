@@ -1,0 +1,54 @@
+﻿@page
+@model DemoRazorPage.Pages.Students.CreateModel
+@{
+}
+
+<form asp-action="/Students/Create" method="post">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>
+                <input asp-for="student.Id" />
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input asp-for="student.Name" />
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input asp-for="student.Gender" />Male/Female
+            </td>
+        </tr>
+        <tr>
+            <td>Department Name</td>
+            <td>
+                @foreach(var d in Model.listDepart)
+                {
+                    @* <input type="radio" asp-for="student.DepartId" value="@d.Id" />@d.Name<br /> *@
+                    <input type="checkbox" asp-for="student.DepartId" value="@d.Id"/>@d.Name<br>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Date Of Birth</td>
+            <td>
+                <input type="date" asp-for="student.Dob" />
+            </td>
+        </tr>
+        <tr>
+            <td>GPA</td>
+            <td>
+                <input asp-for="student.Gpa" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Create Student</button>
+            </td>
+        </tr>
+    </table>
+</form>

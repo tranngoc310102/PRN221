@@ -1,0 +1,56 @@
+﻿@page
+@model DemoRazorPage.Pages.Students.UpdateModel
+@{
+}
+
+<form asp-action="/Students/Update" method="post">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>
+                <input asp-for="student.Id" />
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input asp-for="student.Name" />
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input asp-for="student.Gender" />Male/Female
+            </td>
+        </tr>
+        <tr>
+            <td>Department Name</td>
+            <td>
+                <select asp-for="student.DepartId" asp-items="ViewBag.depart">
+                    @* @foreach (var depart in Model.listDepart)
+                    {
+                        <option value="@depart.Id">@depart.Name</option>
+                    } *@
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Date Of Birth</td>
+            <td>
+                <input type="date" asp-for="student.Dob" />
+            </td>
+        </tr>
+        <tr>
+            <td>GPA</td>
+            <td>
+                <input asp-for="student.Gpa" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Update Student</button>
+            </td>
+        </tr>
+    </table>
+</form>
+

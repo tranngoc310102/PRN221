@@ -1,0 +1,50 @@
+﻿@page
+@using DemoRazorPage.Models
+@model DemoRazorPage.Pages.Students.DetailModel
+@{
+}
+<form>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>
+                <p>@Model.student.Id</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <p>@Model.student.Name</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                @(Model.student.Gender ? "Male" : "Female")
+            </td>
+        </tr>
+        <tr>
+            <td>Department Name</td>
+            <td>
+                <p>@Model.student.Depart.Name</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Date Of Birth</td>
+            <td>
+                <p>@Model.student.Dob</p>
+            </td>
+        </tr>
+        <tr>
+            <td>GPA</td>
+            <td>
+                <p>@Model.student.Gpa</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="location.href = '/Students/Index'">Back Previous</button>
+            </td>
+        </tr>
+    </table>
+</form>
