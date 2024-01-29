@@ -1,0 +1,70 @@
+﻿@page
+@model SearchStudent.Pages.Stu.ListModel
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<div class="row">
+    <input type="text" id="textSearch" class="form-control col-md-8" placeholder="Enter key word" style="width: 60%;"/>
+    <button class="col-md-4" style="width: 20%; margin-left:10px;" onclick="getTextSearch()">Search</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Gpa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Depart)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Student) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)Male/Female
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gpa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depart.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script>
+    function getTextSearch() {
+        let text = document.getElementById("textSearch").value;
+        window.location.href = "/Stu/List?key=" + text;
+    }
+</script>

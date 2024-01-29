@@ -1,0 +1,56 @@
+﻿@page
+@model DemoRazorPage.Pages.Students.IndexModel
+@{
+}
+<a href="/Students/Create">Create New Student</a><br />
+<a asp-page="/Students/Create">Create New Student</a>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Gender</th>
+		<th>Department Name</th>
+		<th>Date of Brith</th>
+		<th>GPA</th>
+		<th>
+		</th>
+		<th>
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach(var st in Model.student)
+	{
+		<tr>
+			<td>@st.Id</td>
+			<td>@st.Name</td>
+			<td style="width: 20%;">
+				<input type="checkbox" checked="@st.Gender"/>Male/Female
+			</td>
+			<td style="width: 25%;">@st.Depart.Name</td>
+			<td style="width: 20%;">@st.Dob</td>
+			<td style="width: 20%;">@st.Gpa</td>
+			<td><button onclick="updateStudent(@st.Id)">Update</button></td>
+			<td>
+				<button onclick="DeleteStudent(@st.Id)">Delete</button>
+			</td>
+			<td>
+				<button style="margin-left:10px;" onclick="DetailStudent(@st.Id)">Details</button>
+			</td>
+		</tr>
+	}
+</table>
+<script>
+	function updateStudent(studentId) {
+		var url = '/Students/Update?sid=' + studentId;
+		window.location.href = url;
+	}
+	function DetailStudent(studentId) {
+		var url = '/Students/Detail?sid=' + studentId;
+		window.location.href = url;
+	}
+	function DeleteStudent(studentId) {
+		var url = '/Students/Delete?sid=' + studentId;
+		window.location.href = url;
+	}
+</script>

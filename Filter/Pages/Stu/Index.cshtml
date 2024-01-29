@@ -1,0 +1,135 @@
+﻿@page
+@model Filter.Pages.Stu.IndexModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+	<a asp-page="Create">Create New</a>
+</p>
+<div class="row">
+	<select name="gender" id="genderSelect" class="form-control col-2"style="width: unset;">
+		<option value="None">Select Gender</option>
+		<option value="true">Male</option>
+		<option value="false">Female</option>
+	</select>
+
+	<select id="departSelect" asp-items="ViewBag.depart" class="form-control col-4" style="width: unset;margin-left: 10%;">
+		<option value="None" selected>Select Department Name</option>
+	</select>
+
+	<select id="gpaSelect" class="form-control col-2" style="width: unset;margin-left:10%;">
+		<option value="None">Select Gpa</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+	</select>
+</div>
+<form action="/Stu/Index" id="id" method="post">
+	<input type="text" name="name"/>
+	<button type="submit">Submit</button>
+</form>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Student[0].Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student[0].Gender)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student[0].Dob)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student[0].Gpa)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Student[0].Depart)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Student)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Gender) Male/Female
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Dob)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Gpa)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Depart.Name)
+				</td>
+				<td>
+					<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+					<a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+					<a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<script>
+	
+	// function getGender() {
+	// 	var gender = document.getElementById("genderSelect").value;
+	// 	let depart = document.getElementById("departSelect").value;
+	// 	window.location.href = "/Stu/Index?sfilter=" + gender +"&sdepart="+ depart;
+	// }
+	// function getDepart() {
+	// 	var selectGender = document.getElementById("genderSelect").value;
+	// 	let selectDepart = document.getElementById("departSelect").value;
+	// 	filter.push({ sdepart: selectDepart, });
+	// 	var sfilter = JSON.parse(filter);
+	// 	window.location.href = "/Stu/Index?sfilter=" + sfilter;
+	// }
+	// function getGpa() {
+	// 	var selectGender = document.getElementById("genderSelect").value;
+	// 	let selectDepart = document.getElementById("departSelect").value;
+	// 	let selectGpa = document.getElementById("gpaSelect").value;
+	// 	filter.push({ sgpa: selectGpa, });
+	// 	var sfilter = JSON.parse(filter);
+	// 	window.location.href = "/Stu/Index?sfilter=" + sfilter;
+	// }
+
+	var urlParams = new URLSearchParams(window.location.search);
+	var selectGenderUrl = urlParams.get('sgender') || 'None'; // Nếu không có giá trị, để trống
+	var selectDepartUrl = urlParams.get('sdepart') || 'None';
+	var selectGpaUrl = urlParams.get('sgpa') || 'None';
+	// Thiết lập giá trị của các thẻ select
+	document.getElementById("genderSelect").value = selectGenderUrl;
+	document.getElementById("departSelect").value = selectDepartUrl;
+	document.getElementById("gpaSelect").value = selectGpaUrl;
+	function updateFilters() {
+		var selectGender = document.getElementById("genderSelect").value;
+		var selectDepart = document.getElementById("departSelect").value;
+		var selectGpa = document.getElementById("gpaSelect").value;
+		urlParams.set('sgender', selectGender);
+		urlParams.set('sdepart', selectDepart);
+		urlParams.set('sgpa', selectGpa);
+
+		var newUrl = "/Stu/Index?" + urlParams.toString();
+		window.location.href = newUrl;
+	}
+	document.getElementById("id").addEventListener("submit", function (event) { 
+	});
+	document.getElementById("genderSelect").addEventListener("change", updateFilters);
+	document.getElementById("departSelect").addEventListener("change", updateFilters);
+	document.getElementById("gpaSelect").addEventListener("change", updateFilters);
+
+</script>
